@@ -1,0 +1,26 @@
+/* autoprefixer grid: autoplace */
+@import-normalize ;
+
+@import "system/mixins";
+@import "system/vars";
+@import "system/defaults";
+
+.app-wrapper {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr minmax(150px, 10fr);
+  grid-gap: 10px;
+  grid-template-areas:
+          "header header"
+          "aside main"
+          "footer footer";
+}
+
+.logo {
+  text-decoration: none;
+  color: $white;
+}
+
+.app-wrapper-content {
+  grid-area: main;
+}

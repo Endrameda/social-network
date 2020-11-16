@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body {
+  overflow-x: hidden;
+  background-color: #f0f0f0;
+  font-family: $font_default;
+  font-size: $font_size_default;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}

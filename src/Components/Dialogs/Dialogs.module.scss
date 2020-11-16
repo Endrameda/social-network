@@ -1,0 +1,34 @@
+@import "src/styles/system/vars";
+
+.dialogs {
+  display: grid;
+  grid-template-columns: minmax(150px, 40%) minmax(200px, 60%);
+}
+
+.dialogItems {
+  background-color: rgba($grayBg, 0.2);
+  overflow: hidden;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.messagesWrapper {
+  padding: 10px;
+  max-width:100%;
+}
+
+.textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  max-width: 100%;
+}
+
+.sendPart {
+  display: flex;
+  flex-direction: column;
+}

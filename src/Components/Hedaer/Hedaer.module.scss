@@ -1,0 +1,10 @@
+@import 'src/styles/system/vars';
+
+.header {
+  grid-area: header;
+  background-color: $grayBg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+}

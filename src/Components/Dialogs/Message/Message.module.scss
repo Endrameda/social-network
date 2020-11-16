@@ -1,0 +1,22 @@
+@import "src/styles/system/vars";
+
+.message {
+  padding: 10px;
+  border-radius: 12px;
+  display: inline-block;
+  max-width: 320px;
+
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+}
+
+.message_right {
+  margin-right: auto;
+  background-color: rgba($grayBg, 0.2);
+}
+
+.message_left {
+  margin-left: auto;
+  background-color: rgba($lightBlue, 0.2);
+}

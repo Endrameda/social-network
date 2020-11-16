@@ -1,0 +1,25 @@
+@import "src/styles/system/vars";
+
+.friendsBlockItem {
+  margin-bottom: 5px;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.nickname {
+  color: $white;
+}

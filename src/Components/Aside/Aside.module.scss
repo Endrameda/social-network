@@ -1,0 +1,8 @@
+@import 'src/styles/system/vars';
+
+.aside {
+  grid-area: aside;
+  background-color: $grayBg;
+  padding: 15px;
+  min-width: 211.66px;
+}

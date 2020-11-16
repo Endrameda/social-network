@@ -1,0 +1,52 @@
+@import "src/styles/system/vars";
+
+.item {
+  color: gray;
+  display: flex;
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.imageWr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0;
+  min-width: 88px;
+  max-width: 88px;
+  height: 88px;
+  background-color: $lightBlue;
+  margin-right: 10px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.itemRight {
+  padding: 10px 0;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 1.2;
+  color: $black;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.2;
+  color: $grayBg;
+  margin-bottom: 10px;
+}
