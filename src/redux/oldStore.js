@@ -1,8 +1,7 @@
-import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialogs-reducer";
-import asideReducer from "./aside-reducer";
+import profileReducer from "./reducers/profile-reducer";
+import dialogsReducer from "./reducers/dialogs-reducer";
 
-let store = {
+let oldStore = {
     _state: {
         profilePage: {
             postsData: [
@@ -61,7 +60,6 @@ let store = {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
-        this._state.aside = asideReducer(this._state.aside, action);
 
         this._callSubscriber(this._state);
     },
@@ -70,4 +68,4 @@ let store = {
 
 
 
-export default store;
+export default oldStore;

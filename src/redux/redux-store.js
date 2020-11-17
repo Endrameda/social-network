@@ -1,12 +1,6 @@
-import {combineReducers, createStore} from "redux";
-import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialogs-reducer";
+import {createStore} from "redux";
+import { rootReducer } from "./reducers/rootReducer";
 
-let reducers = combineReducers({
-    profilePage: profileReducer,
-    dialogsPage: dialogsReducer
-})
-
-let store = createStore(reducers);
+let store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default store

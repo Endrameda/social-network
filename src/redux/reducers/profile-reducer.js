@@ -1,5 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_TEXT_POST = 'UPDATE-NEW-TEXT-POST';
+import { ADD_POST, UPDATE_NEW_TEXT_POST } from "../actionCreators";
+
 
 const initialState = {
 	postsData: [
@@ -38,18 +38,6 @@ const profileReducer = (state = initialState, action) => {
 	}
 }
 
-export const addPostActionCreator = () => {
-	return {
-		type: ADD_POST
-	}
-}
-
-export const updateNewTextPostActionCreator = (text) => {
-	return {
-		type: UPDATE_NEW_TEXT_POST,
-		newText: text
-	}
-}
 
 
 export default profileReducer;

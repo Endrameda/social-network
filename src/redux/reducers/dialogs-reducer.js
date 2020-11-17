@@ -1,5 +1,4 @@
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
+import {UPDATE_MESSAGE_TEXT, ADD_MESSAGE} from '../actionCreators';
 
 const initialState = {
 	messagesData: [
@@ -13,12 +12,12 @@ const initialState = {
 		{
 			id: 1,
 			name: 'Sardor',
-			instagramUserPicSrc: 'https://scontent-hel3-1.cdninstagram.com/v/t51.2885-19/s150x150/35574612_261445484606305_4883036490206019584_n.jpg?_nc_ht=scontent-hel3-1.cdninstagram.com&_nc_ohc=pop7AeqdNvkAX9S0cuM&oh=ec1caf723ab63f6b5399e6230f707689&oe=5FAE3658'
+			instagramUserPicSrc: null
 		},
 		{
 			id: 2,
 			name: 'Ekaterina',
-			instagramUserPicSrc: 'https://scontent-hel3-1.cdninstagram.com/v/t51.2885-19/s150x150/116616130_1465340073675779_6113376295428671452_n.jpg?_nc_ht=scontent-hel3-1.cdninstagram.com&_nc_ohc=fKUCXp-_FuYAX_2jZTr&oh=bde063297e115832517f8c8fc216fda1&oe=5FADAE5C'
+			instagramUserPicSrc: null
 		},
 		{id: 3, name: 'Andrew', instagramUserPicSrc: null},
 		{id: 4, name: 'Bob', instagramUserPicSrc: null},
@@ -54,17 +53,5 @@ const dialogsReducer = (state = initialState, action) => {
 	}
 }
 
-export const updateDialogMessageTextActionCreator = (text) => {
-	return {
-		type: UPDATE_MESSAGE_TEXT,
-		newText: text
-	}
-}
-
-export const addNewMessageActionCreator = () => {
-	return {
-		type: ADD_MESSAGE
-	}
-}
 
 export default dialogsReducer;

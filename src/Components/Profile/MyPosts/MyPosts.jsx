@@ -43,7 +43,7 @@ const MyPosts = (props) => {
                     />
                 </div>
                 <div>
-                    <button onClick={onAddPost}>Add new post</button>
+                    <button className={styles.button} onClick={onAddPost}>Add new post</button>
                 </div>
             </div>
             <div>
