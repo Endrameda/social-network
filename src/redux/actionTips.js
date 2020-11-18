@@ -49,7 +49,6 @@ export const unfollowAC = (userID) => {
 }
 
 export const setUsersAC = (users) => {
-	console.log('setUsersAC calling')
 	return {
 		type: SET_USERS,
 		users
