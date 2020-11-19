@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './FriendBlockItem.module.scss'
-import userAvatar from '../../../img/icons/User avatar.svg'
+import userAvatar from '../../../assets/img/icons/User avatar.svg'
 
 const FriendBlockItem = (props) => {
     return (
