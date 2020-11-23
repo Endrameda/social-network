@@ -11,7 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 
-const App = (props) => {
+const App = () => {
 	return (
 		<div className="app-wrapper container">
 			<Header/>

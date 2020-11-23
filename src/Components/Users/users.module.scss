@@ -9,7 +9,10 @@
     border-radius: 15px;
     padding: 10px;
     display: flex;
-    margin-bottom: 20px;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
 }
 
 .itemLeft {
@@ -56,4 +59,40 @@
 .locationCountry, .locationCity {
     @extend .status;
     display: block;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+    font-size: 0;
+}
+
+.paginationItem {
+    font-size: 15px;
+    display: flex;
+    min-width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-align: center;
+    margin: 3px;
+    padding: 3px;
+    background-color: $grayBg;
+    border: 1px solid $grayBg;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        color: $grayBg;
+        background-color: #f0f0f0;
+    }
+}
+
+.paginationItemSelected {
+    color: $grayBg;
+    background-color: #f0f0f0;
 }

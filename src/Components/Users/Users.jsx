@@ -1,23 +1,20 @@
 import React from 'react';
-import styles from './users.module.scss';
-import * as axios from "axios";
-import userPhoto from '../../assets/img/icons/User avatar.svg'
+import styles from "./users.module.scss";
+import userPhoto from "../../assets/img/icons/User avatar.svg";
 
-export default class Users extends React.Component {
-	constructor(props) {
-		super(props);
-		if (props.users.length === 0) {
-			axios.get('https://social-network.samuraijs.com/api/1.0/users')
-				.then(response => {
-					this.props.setUsers(response.data.items);
-				});
-		}
+
+const Users = (props) => {
+	let pagesCount = Math.ceil(props.totalCount / props.pageSize);
+	let pages = [];
+
+	for (let i = 1; i <= pagesCount; i++) {
+		pages.push(i)
 	}
 
-	render() {
-		return <div className={styles.usersList}>
+	return (
+		<div className={styles.usersList}>
 			{
-				this.props.users.map(user => <div key={user.id} className={styles.item}>
+				props.users.map(user => <div key={user.id} className={styles.item}>
 					<div className={styles.itemLeft}>
 						<div className={styles.imageWrapper}>
 							<img src={
@@ -26,8 +23,8 @@ export default class Users extends React.Component {
 									: userPhoto} alt={user.name}/>
 						</div>
 						{user.followed
-							? <button onClick={() => this.props.unfollow(user.id)}>Unfollow</button>
-							: <button onClick={() => this.props.follow(user.id)}>Follow</button>}
+							? <button onClick={() => props.unfollow(user.id)}>Unfollow</button>
+							: <button onClick={() => props.follow(user.id)}>Follow</button>}
 					</div>
 					<div className={styles.itemRight}>
 						<div className={styles.userInfo}>
@@ -44,6 +41,19 @@ export default class Users extends React.Component {
 					</div>
 				</div>)
 			}
+			<div className={styles.pagination}>
+				{pages.map(page => {
+					return <span key={page} className={props.currentPage === page
+						? `${styles.paginationItem} ${styles.paginationItemSelected}`
+						: `${styles.paginationItem}`}
+								 onClick={() => props.onPageChanged(page)}
+					>
+						{page}
+					</span>
+				})}
+			</div>
 		</div>
-	}
+	)
 }
+
+export default Users;

@@ -1,8 +1,8 @@
 import {
 	ADD_MESSAGE,
 	ADD_POST,
-	FOLLOW,
-	SET_USERS,
+	FOLLOW, SET_CURRENT_PAGE,
+	SET_USERS, SET_USERS_TOTAL_COUNT,
 	UNFOLLOW,
 	UPDATE_MESSAGE_TEXT,
 	UPDATE_NEW_TEXT_POST
@@ -52,5 +52,19 @@ export const setUsersAC = (users) => {
 	return {
 		type: SET_USERS,
 		users
+	}
+}
+
+export const setCurrentPageAC = (currentPage) => {
+	return {
+		type: SET_CURRENT_PAGE,
+		currentPage
+	}
+}
+
+export const setUsersTotalCountAC = (usersTotalCount) => {
+	return {
+		type: SET_USERS_TOTAL_COUNT,
+		usersTotalCount
 	}
 }
