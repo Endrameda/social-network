@@ -5,6 +5,8 @@
 @import "system/vars";
 @import "system/defaults";
 
+@import "blocks/title";
+
 .app-wrapper {
   display: grid;
   grid-template-rows: 60px 1fr;

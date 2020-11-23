@@ -3,13 +3,13 @@ import { Route, Switch } from "react-router-dom";
 import './styles/App.scss';
 import Header from "./Components/Hedaer/Header";
 import Aside from "./Components/Aside/Aside";
-import Profile from "./Components/Profile/Profile";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import Footer from "./Components/Footer/Footer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
 
 const App = () => {
 	return (
@@ -17,7 +17,7 @@ const App = () => {
 			<Header/>
 			<Aside/>
 			<Switch className="app-wrapper-content">
-				<Route path='/profile' render={() => <Profile/>}/>
+				<Route path='/profile' render={() => <ProfileContainer />}/>
 				<Route path='/dialogs' render={() => <DialogsContainer/>}/>
 				<Route path='/users' render={() => <UsersContainer/>}/>
 				<Route path='/news' render={() => <News/>}/>

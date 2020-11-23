@@ -1,7 +1,7 @@
 import {
 	ADD_MESSAGE,
 	ADD_POST,
-	FOLLOW, SET_CURRENT_PAGE,
+	FOLLOW, SET_CURRENT_PAGE, SET_USER_PROFILE,
 	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING,
 	UNFOLLOW,
 	UPDATE_MESSAGE_TEXT,
@@ -73,5 +73,12 @@ export const toggleIsFetching = isFetching => {
 	return {
 		type: TOGGLE_IS_FETCHING,
 		isFetching
+	}
+}
+
+export const setUserProfile = profile => {
+	return {
+		type: SET_USER_PROFILE,
+		profile
 	}
 }

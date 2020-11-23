@@ -1,0 +1,15 @@
+.title {
+    font-size: 32px;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+
+    &_center {
+        text-align: center;
+    }
+
+    &_gray {
+        color: $gray;
+    }
+}

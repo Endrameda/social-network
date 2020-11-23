@@ -1,4 +1,4 @@
-import { ADD_POST, UPDATE_NEW_TEXT_POST } from "../actionCreators";
+import { ADD_POST, SET_USER_PROFILE, UPDATE_NEW_TEXT_POST } from "../actionCreators";
 
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
 		{id: 3, name: 'Ekaterina', message: 'I\'m going for a walk with my boyfriend today!', likeCount: 0},
 	],
 	textareaText: 'New Post',
+	profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -31,6 +32,12 @@ const profileReducer = (state = initialState, action) => {
 		return {
 			...state,
 			textareaText: action.newText
+		}
+	}
+	case SET_USER_PROFILE: {
+		return {
+			...state,
+			profile: action.profile
 		}
 	}
 	default:

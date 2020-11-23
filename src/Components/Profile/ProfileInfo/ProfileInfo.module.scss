@@ -1,3 +1,21 @@
+@import "src/styles/system/vars";
+
 .description {
   padding: 10px;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 220px;
+  max-height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+
+.about {
+  font-size: 18px;
+  color: $gray;
 }
