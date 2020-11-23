@@ -2,7 +2,7 @@ import {
 	ADD_MESSAGE,
 	ADD_POST,
 	FOLLOW, SET_CURRENT_PAGE,
-	SET_USERS, SET_USERS_TOTAL_COUNT,
+	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING,
 	UNFOLLOW,
 	UPDATE_MESSAGE_TEXT,
 	UPDATE_NEW_TEXT_POST
@@ -66,5 +66,12 @@ export const setUsersTotalCountAC = (usersTotalCount) => {
 	return {
 		type: SET_USERS_TOTAL_COUNT,
 		usersTotalCount
+	}
+}
+
+export const toggleIsFetchingAC = isFetching => {
+	return {
+		type: TOGGLE_IS_FETCHING,
+		isFetching
 	}
 }
