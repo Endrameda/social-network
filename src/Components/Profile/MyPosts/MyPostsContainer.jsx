@@ -1,6 +1,6 @@
 import MyPosts from "./MyPosts";
 import { connect } from "react-redux";
-import { addPostActionCreator, updateNewTextPostActionCreator } from "../../../redux/actionTips";
+import { addPost, updateChangeTextarea } from "../../../redux/actionTips";
 
 const mapStateToProps = state => {
 	return {
@@ -9,14 +9,9 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		updateChangeTextarea: (text) => {
-			let action = updateNewTextPostActionCreator(text)
-			dispatch(action)
-		},
-		addPost: () => dispatch(addPostActionCreator())
-	}
+const mapDispatchToProps =  {
+		updateChangeTextarea,
+		addPost
 }
 
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)

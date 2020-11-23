@@ -8,68 +8,68 @@ import {
 	UPDATE_NEW_TEXT_POST
 } from "./actionCreators";
 
-export const updateDialogMessageTextActionCreator = (text) => {
+export const updateDialogMessageText = (text) => {
 	return {
 		type: UPDATE_MESSAGE_TEXT,
 		newText: text
 	}
 }
 
-export const addNewMessageActionCreator = () => {
+export const addNewMessage = () => {
 	return {
 		type: ADD_MESSAGE
 	}
 }
 
-export const addPostActionCreator = () => {
+export const addPost = () => {
 	return {
 		type: ADD_POST
 	}
 }
 
-export const updateNewTextPostActionCreator = (text) => {
+export const updateChangeTextarea = (text) => {
 	return {
 		type: UPDATE_NEW_TEXT_POST,
 		newText: text
 	}
 }
 
-export const followAC = (userID) => {
+export const follow = (userID) => {
 	return {
 		type: FOLLOW,
 		userID
 	}
 }
 
-export const unfollowAC = (userID) => {
+export const unfollow = (userID) => {
 	return {
 		type: UNFOLLOW,
 		userID
 	}
 }
 
-export const setUsersAC = (users) => {
+export const setUsers = (users) => {
 	return {
 		type: SET_USERS,
 		users
 	}
 }
 
-export const setCurrentPageAC = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
 	return {
 		type: SET_CURRENT_PAGE,
 		currentPage
 	}
 }
 
-export const setUsersTotalCountAC = (usersTotalCount) => {
+export const setUsersTotalCount = (usersTotalCount) => {
 	return {
 		type: SET_USERS_TOTAL_COUNT,
 		usersTotalCount
 	}
 }
 
-export const toggleIsFetchingAC = isFetching => {
+export const toggleIsFetching = isFetching => {
 	return {
 		type: TOGGLE_IS_FETCHING,
 		isFetching

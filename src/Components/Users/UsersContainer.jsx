@@ -1,11 +1,11 @@
 import React from "react";
 import {
-	followAC,
-	setCurrentPageAC,
-	setUsersAC,
-	setUsersTotalCountAC,
-	toggleIsFetchingAC,
-	unfollowAC
+	follow,
+	setCurrentPage,
+	setUsers,
+	setUsersTotalCount,
+	toggleIsFetching,
+	unfollow
 } from "../../redux/actionTips";
 import { connect } from "react-redux";
 import * as axios from "axios";
@@ -35,7 +35,7 @@ class UsersAPIComponent extends React.Component {
 
 	render() {
 		return <div>
-			{this.props.isFetching ? <Preloader /> : null}
+			{this.props.isFetching ? <Preloader/> : null}
 			<Users
 				totalCount={this.props.totalCount}
 				pageSize={this.props.pageSize}
@@ -59,27 +59,11 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		follow: userID => {
-			dispatch(followAC(userID));
-		},
-		unfollow: userID => {
-			dispatch(unfollowAC(userID));
-		},
-		setUsers: users => {
-			dispatch(setUsersAC(users))
-		},
-		setCurrentPage: currentPage => {
-			dispatch(setCurrentPageAC(currentPage))
-		},
-		setUsersTotalCount: usersTotalCount => {
-			dispatch(setUsersTotalCountAC(usersTotalCount));
-		},
-		toggleIsFetching: isFetching => {
-			dispatch(toggleIsFetchingAC(isFetching))
-		}
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+export default connect(mapStateToProps, {
+	follow,
+	unfollow,
+	setUsers,
+	setCurrentPage,
+	setUsersTotalCount,
+	toggleIsFetching
+})(UsersAPIComponent)
