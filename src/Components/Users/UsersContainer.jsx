@@ -8,31 +8,25 @@ import {
 	unfollow
 } from "../../redux/actionCreators";
 import { connect } from "react-redux";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import { userAPI } from "../../API/api";
 
 class UsersAPIComponent extends React.Component {
 	componentDidMount() {
 		this.props.toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`, {
-			withCredentials: true
-		})
-			.then(response => {
-				this.props.setUsers(response.data.items);
-				this.props.setUsersTotalCount(response.data.totalCount);
-				this.props.toggleIsFetching(false);
-			});
+		userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+			this.props.setUsers(data.items);
+			this.props.setUsersTotalCount(data.totalCount);
+			this.props.toggleIsFetching(false);
+		});
 	}
 
 	onPageChanged = pageNumber => {
 		this.props.setCurrentPage(pageNumber)
 		this.props.toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`, {
-			withCredentials: true
-		})
-			.then(response => {
-				this.props.setUsers(response.data.items);
+		userAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+				this.props.setUsers(data.items);
 				this.props.toggleIsFetching(false);
 			});
 	}
@@ -41,12 +35,7 @@ class UsersAPIComponent extends React.Component {
 		return <div>
 			{this.props.isFetching ? <Preloader/> : null}
 			<Users
-				totalCount={this.props.totalCount}
-				pageSize={this.props.pageSize}
-				users={this.props.users}
-				unfollow={this.props.unfollow}
-				follow={this.props.follow}
-				currentPage={this.props.currentPage}
+				{...this.props}
 				onPageChanged={this.onPageChanged}
 			/>
 		</div>
@@ -54,7 +43,6 @@ class UsersAPIComponent extends React.Component {
 }
 
 const mapStateToProps = state => {
-	console.log(state.usersPage.users)
 	return {
 		users: state.usersPage.users,
 		pageSize: state.usersPage.pageSize,
