@@ -1,84 +1,12 @@
-import {
-	ADD_MESSAGE,
-	ADD_POST,
-	FOLLOW, SET_CURRENT_PAGE, SET_USER_PROFILE,
-	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING,
-	UNFOLLOW,
-	UPDATE_MESSAGE_TEXT,
-	UPDATE_NEW_TEXT_POST
-} from "./actionCreators";
-
-export const updateDialogMessageText = (text) => {
-	return {
-		type: UPDATE_MESSAGE_TEXT,
-		newText: text
-	}
-}
-
-export const addNewMessage = () => {
-	return {
-		type: ADD_MESSAGE
-	}
-}
-
-export const addPost = () => {
-	return {
-		type: ADD_POST
-	}
-}
-
-export const updateChangeTextarea = (text) => {
-	return {
-		type: UPDATE_NEW_TEXT_POST,
-		newText: text
-	}
-}
-
-export const follow = (userID) => {
-	return {
-		type: FOLLOW,
-		userID
-	}
-}
-
-export const unfollow = (userID) => {
-	return {
-		type: UNFOLLOW,
-		userID
-	}
-}
-
-export const setUsers = (users) => {
-	return {
-		type: SET_USERS,
-		users
-	}
-}
-
-export const setCurrentPage = (currentPage) => {
-	return {
-		type: SET_CURRENT_PAGE,
-		currentPage
-	}
-}
-
-export const setUsersTotalCount = (usersTotalCount) => {
-	return {
-		type: SET_USERS_TOTAL_COUNT,
-		usersTotalCount
-	}
-}
-
-export const toggleIsFetching = isFetching => {
-	return {
-		type: TOGGLE_IS_FETCHING,
-		isFetching
-	}
-}
-
-export const setUserProfile = profile => {
-	return {
-		type: SET_USER_PROFILE,
-		profile
-	}
-}
+export const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+export const ADD_MESSAGE = 'ADD-MESSAGE';
+export const ADD_POST = 'ADD-POST';
+export const UPDATE_NEW_TEXT_POST = 'UPDATE-NEW-TEXT-POST';
+export const FOLLOW = 'FOLLOW';
+export const UNFOLLOW = 'UNFOLLOW';
+export const SET_USERS = 'SET_USERS';
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+export const SET_USERS_TOTAL_COUNT = 'SET_USERS_TOTAL_COUNT';
+export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+export const SET_USER_PROFILE = 'SET_USER_PROFILE';
+export const SET_USER_DATA = 'SET_USER_DATA';

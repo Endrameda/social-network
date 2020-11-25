@@ -19,7 +19,7 @@ ReactDOM.render(
 );
 
 
-window.store = store.getState();
+window.store = store;
 
 
 serviceWorker.unregister();

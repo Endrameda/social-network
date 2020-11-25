@@ -1,4 +1,4 @@
-import { ADD_POST, SET_USER_PROFILE, UPDATE_NEW_TEXT_POST } from "../actionCreators";
+import { ADD_POST, SET_USER_PROFILE, UPDATE_NEW_TEXT_POST } from "../actionTips";
 
 
 const initialState = {

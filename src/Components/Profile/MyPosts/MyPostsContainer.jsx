@@ -1,6 +1,6 @@
 import MyPosts from "./MyPosts";
 import { connect } from "react-redux";
-import { addPost, updateChangeTextarea } from "../../../redux/actionTips";
+import { addPost, updateChangeTextarea } from "../../../redux/actionCreators";
 
 const mapStateToProps = state => {
 	return {

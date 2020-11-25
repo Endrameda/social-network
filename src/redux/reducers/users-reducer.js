@@ -5,7 +5,7 @@ import {
 	SET_CURRENT_PAGE,
 	SET_USERS_TOTAL_COUNT,
 	TOGGLE_IS_FETCHING
-} from "../actionCreators";
+} from "../actionTips";
 import { act } from "@testing-library/react";
 
 const initialState = {

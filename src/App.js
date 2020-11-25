@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import './styles/App.scss';
-import Header from "./Components/Hedaer/Header";
 import Aside from "./Components/Aside/Aside";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
@@ -10,14 +9,15 @@ import Footer from "./Components/Footer/Footer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
+import HeaderContainer from "./Components/Hedaer/HeaderContainer";
 
 const App = () => {
 	return (
 		<div className="app-wrapper container">
-			<Header/>
+			<HeaderContainer/>
 			<Aside/>
 			<Switch className="app-wrapper-content">
-				<Route path='/profile' render={() => <ProfileContainer />}/>
+				<Route path='/profile/:userId' render={() => <ProfileContainer />}/>
 				<Route path='/dialogs' render={() => <DialogsContainer/>}/>
 				<Route path='/users' render={() => <UsersContainer/>}/>
 				<Route path='/news' render={() => <News/>}/>

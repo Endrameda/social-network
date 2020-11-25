@@ -6,7 +6,7 @@ import {
 	setUsersTotalCount,
 	toggleIsFetching,
 	unfollow
-} from "../../redux/actionTips";
+} from "../../redux/actionCreators";
 import { connect } from "react-redux";
 import * as axios from "axios";
 import Users from "./Users";

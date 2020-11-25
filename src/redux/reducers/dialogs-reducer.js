@@ -1,4 +1,4 @@
-import {UPDATE_MESSAGE_TEXT, ADD_MESSAGE} from '../actionCreators';
+import {UPDATE_MESSAGE_TEXT, ADD_MESSAGE} from '../actionTips';
 
 const initialState = {
 	messagesData: [
