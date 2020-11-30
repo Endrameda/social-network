@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./users.module.scss";
 import userPhoto from "../../assets/img/icons/User avatar.svg";
 import { NavLink } from "react-router-dom";
-import { userAPI } from "../../API/api";
 
 const Users = (props) => {
 	let pagesCount = Math.ceil(props.totalCount / props.pageSize);
@@ -27,22 +26,10 @@ const Users = (props) => {
 						</div>
 						{user.followed
 							? <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
-								props.toggleIsFollowingProgress(true, user.id);
-								userAPI.unFollowUsers(user.id).then(data => {
-									if (data.resultCode === 0) {
-										props.unfollow(user.id)
-									}
-									props.toggleIsFollowingProgress(false, user.id);
-								});
+								props.unfollow(user.id)
 							}}>Unfollow</button>
 							: <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
-								props.toggleIsFollowingProgress(true, user.id);
-								userAPI.followUsers(user.id).then(data => {
-									if (data.resultCode === 0) {
-										props.follow(user.id)
-									}
-									props.toggleIsFollowingProgress(false, user.id);
-								});
+								props.follow(user.id)
 							}}>Follow</button>}
 					</div>
 					<div className={styles.itemRight}>

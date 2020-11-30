@@ -33,14 +33,14 @@ export const updateChangeTextarea = (text) => {
 	}
 }
 
-export const follow = (userID) => {
+export const followSuccess = (userID) => {
 	return {
 		type: FOLLOW,
 		userID
 	}
 }
 
-export const unfollow = (userID) => {
+export const unfollowSuccess = (userID) => {
 	return {
 		type: UNFOLLOW,
 		userID

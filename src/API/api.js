@@ -21,3 +21,10 @@ export const userAPI = {
 			.then(response => response.data)
 	}
 }
+
+export const authAPI = {
+	auth() {
+		return instance.get(`https://social-network.samuraijs.com/api/1.0/auth/me`)
+			.then(response => response.data)
+	}
+}
