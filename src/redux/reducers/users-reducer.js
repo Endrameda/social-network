@@ -4,7 +4,7 @@ import {
 	SET_USERS,
 	SET_CURRENT_PAGE,
 	SET_USERS_TOTAL_COUNT,
-	TOGGLE_IS_FETCHING
+	TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS
 } from "../actionTips";
 import { act } from "@testing-library/react";
 
@@ -13,7 +13,8 @@ const initialState = {
 	pageSize: 10,
 	totalCount: 0,
 	currentPage: 1,
-	isFetching: true
+	isFetching: true,
+	followingInProgress: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -66,6 +67,14 @@ const usersReducer = (state = initialState, action) => {
 		return {
 			...state,
 			isFetching: action.isFetching
+		}
+	}
+	case TOGGLE_IS_FOLLOWING_PROGRESS: {
+		return {
+			...state,
+			followingInProgress: action.isFetching
+				? [...state.followingInProgress, action.userID]
+				: state.followingInProgress.filter(id => id !== action.userID)
 		}
 	}
 	default:

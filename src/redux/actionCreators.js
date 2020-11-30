@@ -1,7 +1,7 @@
 import {
 	ADD_MESSAGE, ADD_POST,
 	FOLLOW, SET_CURRENT_PAGE, SET_USER_DATA, SET_USER_PROFILE,
-	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING,
+	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
 	UNFOLLOW,
 	UPDATE_MESSAGE_TEXT,
 	UPDATE_NEW_TEXT_POST
@@ -90,5 +90,13 @@ export const setAuthUserData = (email, id, login) => {
 			id,
 			login
 		}
+	}
+}
+
+export const toggleIsFollowingProgress = (isFetching, userID) => {
+	return {
+		type: TOGGLE_IS_FOLLOWING_PROGRESS,
+		isFetching,
+		userID
 	}
 }
