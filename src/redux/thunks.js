@@ -1,6 +1,8 @@
-import { userAPI } from "../API/api";
+import { authAPI, profileAPI, userAPI } from "../API/api";
 import {
 	followSuccess,
+	setAuthUserData,
+	setUserProfile,
 	setUsers,
 	setUsersTotalCount,
 	toggleIsFetching,
@@ -34,5 +36,20 @@ export const unfollow = (userID) => dispatch => {
 			dispatch(unfollowSuccess(userID));
 		}
 		dispatch(toggleIsFollowingProgress(false, userID));
+	});
+}
+
+export const auth = () => dispatch => {
+	authAPI.auth().then(data => {
+		if (data.resultCode === 0) {
+			let {email, id, login} = data.data;
+			dispatch(setAuthUserData(email, id, login));
+		}
+	});
+}
+
+export const profileInfo = (userID) => dispatch => {
+	profileAPI.getProfileInfo(userID).then(data => {
+		dispatch(setUserProfile(data));
 	});
 }
