@@ -4,7 +4,8 @@ import { addNewMessage, updateDialogMessageText } from "../../redux/actionCreato
 
 let mapStateToProps = state => {
 	return {
-		state: state.dialogsPage
+		state: state.dialogsPage,
+		isAuth: state.auth.isAuth
 	}
 }
 
