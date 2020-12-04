@@ -3,6 +3,7 @@
 .dialogs {
   display: grid;
   grid-template-columns: minmax(150px, 40%) minmax(200px, 60%);
+  height: 100%;
 }
 
 .dialogItems {

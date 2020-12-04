@@ -1,7 +1,6 @@
 import React from "react";
 import {
-	setCurrentPage,
-	toggleIsFollowingProgress,
+	setCurrentPage
 } from "../../redux/actionCreators";
 import { connect } from "react-redux";
 import Users from "./Users";
@@ -11,6 +10,7 @@ import {
 	getUsers,
 	unfollow
 } from "../../redux/thunks";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 class UsersAPIComponent extends React.Component {
 	componentDidMount() {
@@ -33,6 +33,8 @@ class UsersAPIComponent extends React.Component {
 	}
 }
 
+let AuthRedirectComponent = withAuthRedirect(UsersAPIComponent);
+
 const mapStateToProps = state => {
 	return {
 		users: state.usersPage.users,
@@ -49,4 +51,4 @@ export default connect(mapStateToProps, {
 	getUsers,
 	follow,
 	unfollow
-})(UsersAPIComponent)
+})(AuthRedirectComponent)
