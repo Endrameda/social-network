@@ -11,6 +11,7 @@ import {
 	unfollow
 } from "../../redux/thunks";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 class UsersAPIComponent extends React.Component {
 	componentDidMount() {
@@ -33,8 +34,6 @@ class UsersAPIComponent extends React.Component {
 	}
 }
 
-let AuthRedirectComponent = withAuthRedirect(UsersAPIComponent);
-
 const mapStateToProps = state => {
 	return {
 		users: state.usersPage.users,
@@ -46,9 +45,12 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, {
-	setCurrentPage,
-	getUsers,
-	follow,
-	unfollow
-})(AuthRedirectComponent)
+export default compose(
+	connect(mapStateToProps, {
+		setCurrentPage,
+		getUsers,
+		follow,
+		unfollow
+	}),
+	withAuthRedirect
+)(UsersAPIComponent)
