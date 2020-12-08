@@ -1,4 +1,9 @@
-import { ADD_POST, SET_USER_PROFILE, UPDATE_NEW_TEXT_POST } from "../actionTips";
+import {
+	ADD_POST,
+	SET_USER_PROFILE,
+	UPDATE_NEW_TEXT_POST,
+	SET_STATUS,
+} from "../actionTips";
 
 
 const initialState = {
@@ -8,7 +13,8 @@ const initialState = {
 		{id: 3, name: 'Ekaterina', message: 'I\'m going for a walk with my boyfriend today!', likeCount: 0},
 	],
 	textareaText: 'New Post',
-	profile: null
+	profile: null,
+	status: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -40,11 +46,16 @@ const profileReducer = (state = initialState, action) => {
 			profile: action.profile
 		}
 	}
+	case SET_STATUS: {
+		return {
+			...state,
+			status: action.status
+		}
+	}
 	default:
 		return state;
 	}
 }
-
 
 
 export default profileReducer;

@@ -1,6 +1,6 @@
 import {
 	ADD_MESSAGE, ADD_POST,
-	FOLLOW, SET_CURRENT_PAGE, SET_USER_DATA, SET_USER_PROFILE,
+	FOLLOW, SET_CURRENT_PAGE, SET_STATUS, SET_USER_DATA, SET_USER_PROFILE,
 	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
 	UNFOLLOW,
 	UPDATE_MESSAGE_TEXT,
@@ -98,5 +98,12 @@ export const toggleIsFollowingProgress = (isFetching, userID) => {
 		type: TOGGLE_IS_FOLLOWING_PROGRESS,
 		isFetching,
 		userID
+	}
+}
+
+export const setStatus = status => {
+	return {
+		type: SET_STATUS,
+		status
 	}
 }

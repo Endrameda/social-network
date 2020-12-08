@@ -1,7 +1,7 @@
 import { authAPI, profileAPI, userAPI } from "../API/api";
 import {
 	followSuccess,
-	setAuthUserData,
+	setAuthUserData, setStatus,
 	setUserProfile,
 	setUsers,
 	setUsersTotalCount,
@@ -52,4 +52,18 @@ export const profileInfo = (userID) => dispatch => {
 	profileAPI.getProfileInfo(userID).then(data => {
 		dispatch(setUserProfile(data));
 	});
+}
+
+export const getUserStatus = (userID) => dispatch => {
+	profileAPI.getStatus(userID).then(data => {
+		dispatch(setStatus(data))
+	})
+}
+
+export const updateStatus = (status) => dispatch => {
+	profileAPI.updateStatus(status).then(response => {
+		if (response.data.resultCode === 0) {
+			dispatch(setStatus(status))
+		}
+	})
 }
