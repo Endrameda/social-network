@@ -35,8 +35,6 @@ class ProfileStatus extends React.Component {
 	}
 
 	render() {
-		console.log('Props status: ', this.props.status);
-		console.log('Local status: ', this.state.status);
 		const textStatus = <div>
 			<span
 				onDoubleClick={this.activateEditMode}>

@@ -1,0 +1,39 @@
+@import "src/styles/system/vars";
+
+.fieldControl {
+    display: block;
+}
+
+.error {
+    border-color: $error !important;
+    color: $error;
+}
+
+.textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 120px;
+    min-width: 300px;
+    border: 1px solid $black;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    max-width: 100%;
+    border: 1px solid $black;
+}
+
+.fieldWrap {
+    margin-bottom: 10px;
+}
+
+.checkboxLabel {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    input {
+        margin-right: 10px;
+    }
+}

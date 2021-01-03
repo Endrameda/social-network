@@ -1,3 +1,5 @@
+@import "src/styles/system/vars";
+
 .postsWrapper {
   padding: 10px;
 }
@@ -10,8 +12,4 @@
 .addPartWrapper {
   display: flex;
   flex-direction: column;
-}
-
-.button {
-  width: 100%;
 }

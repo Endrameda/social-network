@@ -2,34 +2,21 @@ import {
 	ADD_MESSAGE, ADD_POST,
 	FOLLOW, SET_CURRENT_PAGE, SET_STATUS, SET_USER_DATA, SET_USER_PROFILE,
 	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
-	UNFOLLOW,
-	UPDATE_MESSAGE_TEXT,
-	UPDATE_NEW_TEXT_POST
+	UNFOLLOW
 } from "./actionTips";
 
-export const updateDialogMessageText = (text) => {
+
+export const addNewMessage = (messageText) => {
 	return {
-		type: UPDATE_MESSAGE_TEXT,
-		newText: text
+		type: ADD_MESSAGE,
+		messageText
 	}
 }
 
-export const addNewMessage = () => {
+export const addPost = textBody => {
 	return {
-		type: ADD_MESSAGE
-	}
-}
-
-export const addPost = () => {
-	return {
-		type: ADD_POST
-	}
-}
-
-export const updateChangeTextarea = (text) => {
-	return {
-		type: UPDATE_NEW_TEXT_POST,
-		newText: text
+		type: ADD_POST,
+		textBody
 	}
 }
 

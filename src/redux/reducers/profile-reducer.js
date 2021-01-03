@@ -4,6 +4,7 @@ import {
 	UPDATE_NEW_TEXT_POST,
 	SET_STATUS,
 } from "../actionTips";
+import { act } from "@testing-library/react";
 
 
 const initialState = {
@@ -12,7 +13,6 @@ const initialState = {
 		{id: 2, name: 'Sardor', message: 'Hi My name is Sardor', likeCount: 0},
 		{id: 3, name: 'Ekaterina', message: 'I\'m going for a walk with my boyfriend today!', likeCount: 0},
 	],
-	textareaText: 'New Post',
 	profile: null,
 	status: ''
 }
@@ -27,17 +27,10 @@ const profileReducer = (state = initialState, action) => {
 				{
 					id: state.postsData.length + 1,
 					name: 'Oytovog',
-					message: state.textareaText,
+					message: action.textBody,
 					likeCount: 0
 				}
 			],
-			textareaText: ''
-		}
-	}
-	case UPDATE_NEW_TEXT_POST: {
-		return {
-			...state,
-			textareaText: action.newText
 		}
 	}
 	case SET_USER_PROFILE: {
