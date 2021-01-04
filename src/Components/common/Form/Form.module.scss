@@ -9,6 +9,13 @@
     color: $error;
 }
 
+.errorBlock {
+    border: 1px solid $error;
+    color: $error;
+    padding: 5px;
+    margin: 10px 0;
+}
+
 .textarea {
     width: 100%;
     max-width: 100%;

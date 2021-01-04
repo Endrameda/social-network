@@ -1,7 +1,14 @@
 import React from 'react'
 import LoginForm from "./LoginForm";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Login = (props) => {
+const Login = ({isAuth}) => {
+	
+	if (isAuth) {
+		return <Redirect to={"/profile"}/>
+	}
+	
 	return (
 		<div>
 			<h1>Login</h1>
@@ -10,4 +17,10 @@ const Login = (props) => {
 	)
 }
 
-export default Login
+let mapStateToProps = state => {
+	return {
+		isAuth: state.auth.isAuth
+	}
+}
+
+export default connect(mapStateToProps, null)(Login)

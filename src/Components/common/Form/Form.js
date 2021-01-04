@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Form.module.scss";
 
+
 export function Form ({ defaultValues, children, onSubmit, ...rest }) {
 	const { handleSubmit, register, errors, reset } = useForm({ defaultValues, mode: 'onChange' })
 	
@@ -59,4 +60,13 @@ export function Checkbox ({ register, registerObject = {}, name, errors, ...rest
 		</label>
 		{ errors[name] && <p className={ styles.error }>{ errors[name].message }</p> }
 	</div>
+}
+
+export const Error = ({ errorMessage }) => {
+	
+	return errorMessage ?
+		<div className={styles.errorBlock}>
+			{ errorMessage }
+		</div>
+		: null
 }

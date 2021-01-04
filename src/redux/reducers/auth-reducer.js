@@ -1,10 +1,11 @@
-import { SET_USER_DATA } from "../actionTips";
+import { SET_USER_DATA, SET_USER_DATA_ERROR } from "../actionTips";
 
 let initialState = {
 	email: null,
 	id: null,
 	login: null,
-	isAuth: false
+	isAuth: false,
+	error: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -12,8 +13,14 @@ const authReducer = (state = initialState, action) => {
 	case SET_USER_DATA: {
 		return {
 			...state,
-			...action.data,
-			isAuth: true
+			...action.payload,
+			error: null
+		}
+	}
+	case SET_USER_DATA_ERROR: {
+		return {
+			...state,
+			error: action.payload
 		}
 	}
 	default:

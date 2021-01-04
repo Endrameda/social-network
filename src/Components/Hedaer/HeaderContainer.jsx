@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
-import { auth } from "../../redux/thunks";
+import { auth, logout } from "../../redux/thunks";
 
-class HeaderContainer extends React.Component {
-	componentDidMount() {
-		this.props.auth();
-	}
-
-	render() {
-		return <Header {...this.props}/>
-	}
+const HeaderContainer = (props) => {
+	
+	useEffect(() => {
+		props.auth();
+		// eslint-disable-next-line
+	}, [])
+	
+	
+	return <Header { ...props }/>
 }
 
 const mapStateToProps = state => {
@@ -21,5 +22,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-	auth
+	auth,
+	logout
 })(HeaderContainer);

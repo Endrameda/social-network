@@ -1,5 +1,7 @@
 import React from "react";
-import { Checkbox, Form, Input } from "../common/Form/Form";
+import { Checkbox, Error, Form, Input } from "../common/Form/Form";
+import { login } from "../../redux/thunks";
+import { connect, useSelector } from "react-redux";
 
 const errorObject = {
 	required: 'Required field',
@@ -9,26 +11,33 @@ const errorObject = {
 	}
 }
 
-export default function LoginForm () {
-	
-	const onSubmit = data => console.log(data)
+function LoginForm ({ login }) {
+	const errorMessage = useSelector(state => state.auth.error)
+	const onSubmit = async data => {
+		await login(data.email, data.password, data.rememberMe)
+	}
 	
 	return (
 		<Form action="" onSubmit={ onSubmit }>
 			<Input
-				name={ 'name' }
-				type="text"
-				placeholder="Name"
+				name={ 'email' }
+				type="email"
+				placeholder="Email"
 				registerObject={ errorObject }
 			/>
 			<Input
 				name={ 'password' }
-				type="text"
+				type="password"
 				placeholder="Password"
 				registerObject={ errorObject }
 			/>
-			<Checkbox name={ 'checkbox' } registerObject={ { required: 'Required field' } }/>
+			<Checkbox name={ 'rememberMe' } registerObject={ { required: 'Required field' } }/>
+			<Error errorMessage={errorMessage}/>
 			<Input type={ 'submit' } name="submit" className={ 'button' } value={ 'Login' }/>
 		</Form>
 	)
 }
+
+export default connect(null, {
+	login
+})(LoginForm)

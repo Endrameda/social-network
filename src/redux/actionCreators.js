@@ -1,6 +1,6 @@
 import {
 	ADD_MESSAGE, ADD_POST,
-	FOLLOW, SET_CURRENT_PAGE, SET_STATUS, SET_USER_DATA, SET_USER_PROFILE,
+	FOLLOW, SET_CURRENT_PAGE, SET_STATUS, SET_USER_DATA, SET_USER_DATA_ERROR, SET_USER_PROFILE,
 	SET_USERS, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_PROGRESS,
 	UNFOLLOW
 } from "./actionTips";
@@ -69,14 +69,22 @@ export const setUserProfile = profile => {
 	}
 }
 
-export const setAuthUserData = (email, id, login) => {
+export const setAuthUserData = (email, id, login, isAuth) => {
 	return {
 		type: SET_USER_DATA,
-		data: {
+		payload: {
 			email,
 			id,
-			login
+			login,
+			isAuth
 		}
+	}
+}
+
+export const setAuthUserDataError = (error) => {
+	return {
+		type: SET_USER_DATA_ERROR,
+		payload: error
 	}
 }
 
