@@ -1,6 +1,6 @@
 import { authAPI, profileAPI, userAPI } from "../API/api";
 import {
-	followSuccess,
+	followSuccess, initializedSuccess,
 	setAuthUserData, setAuthUserDataError, setStatus,
 	setUserProfile,
 	setUsers,
@@ -40,7 +40,7 @@ export const unfollow = (userID) => dispatch => {
 }
 
 export const auth = (errMessage = null) => dispatch => {
-	authAPI.auth().then(data => {
+	return authAPI.auth().then(data => {
 		if ( data.resultCode === 0 ) {
 			let { email, id, login } = data.data;
 			dispatch(setAuthUserData(email, id, login, true));
@@ -63,7 +63,7 @@ export const login = (email, password, rememberMe) => dispatch => {
 
 export const logout = () => dispatch => {
 	authAPI.logout().then(data => {
-		if (data.resultCode === 0) {
+		if ( data.resultCode === 0 ) {
 			dispatch(setAuthUserData(null, null, null, false))
 		}
 	})
@@ -86,5 +86,12 @@ export const updateStatus = (status) => dispatch => {
 		if ( response.data.resultCode === 0 ) {
 			dispatch(setStatus(status))
 		}
+	})
+}
+
+export const initializeApp = () => dispatch => {
+	let promise = dispatch(auth())
+	promise.then(() => {
+		dispatch(initializedSuccess())
 	})
 }
