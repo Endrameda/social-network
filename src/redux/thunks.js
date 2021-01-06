@@ -10,9 +10,9 @@ import {
 	unfollowSuccess
 } from "./actionCreators";
 
-export const getUsers = (currentPage, pageSize) => dispatch => {
+export const requestUsers = (page, pageSize) => dispatch => {
 	dispatch(toggleIsFetching(true));
-	userAPI.getUsers(currentPage, pageSize).then(data => {
+	userAPI.requestUsers(page, pageSize).then(data => {
 		dispatch(toggleIsFetching(false));
 		dispatch(setUsers(data.items));
 		dispatch(setUsersTotalCount(data.totalCount));
